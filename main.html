@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Voting System</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f1f1f1; /* Light neutral background for luxury feel */
+      color: #444;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    header {
+      background: linear-gradient(145deg, #2b3e50, #1a2d38); /* Elegant gradient for header */
+      padding: 30px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #1a2d38;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 25px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.3s ease;
+      border-radius: 30px;
+    }
+
+    nav a:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    .main-section {
+      padding: 80px 40px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease-out;
+      flex-grow: 1;
+    }
+
+    .main-section h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #2b3e50;
+    }
+
+    .main-section p {
+      font-size: 20px;
+      color: #777;
+      margin-bottom: 50px;
+      line-height: 1.5;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    form {
+      display: inline-block;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    form:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn {
+      padding: 20px 40px;
+      background: #1a2d38;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #2b3e50;
+      padding: 30px;
+      text-align: center;
+      color: #fff;
+      margin-top: 50px;
+      font-size: 18px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+    /* Contact Section Styling */
+    #contact {
+      background: #f1f1f1;
+      padding: 80px 40px;
+      color: #333;
+      text-align: center;
+    }
+
+    #contact h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #2b3e50;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card i {
+      font-size: 40px;
+      color: #2b3e50;
+      margin-bottom: 20px;
+    }
+
+    .contact-card p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .contact-card .btn {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background: #2b3e50;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s ease;
+    }
+
+    .contact-card .btn:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #2b3e50;
+      padding: 30px;
+      text-align: center;
+      color: #fff;
+      margin-top: 50px;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  Student Voting System
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div id="home" class="main-section">
+  <h1>Welcome to the Student Voting System</h1>
+  <p>Experience a transparent, secure, and user-friendly voting system designed for students. Cast your vote and make a difference!</p>
+  
+  <div class="form-container">
+    <!-- Student Login Form -->
+    <form action="index.php" method="POST">
+      <button type="submit" class="btn">Student Login</button>
+    </form>
+    
+    <!-- Admin Login Form -->
+    <form action="../votesystem/admin/index.php" method="POST">
+      <button type="submit" class="btn">Admin Login</button>
+    </form>
+  </div>
+</div>
+
+<div id="about" class="main-section">
+  <h1>About Us</h1>
+  <p>We are committed to offering a secure, easy-to-use, and transparent platform for students to vote. Our goal is to create a trustworthy election system that reflects the will of students everywhere.</p>
+</div>
+
+<!-- Enhanced Contact Section -->
+<div id="contact" class="main-section">
+  <h1>Contact</h1>
+  <div class="contact-info">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <p>Email: adikapadane@gmail.com</p>
+      <a href="mailto:adikapadane@gmail.com" class="btn">Send an Email</a>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-phone-alt"></i>
+      <p>Phone: 9022951550</p>
+      <a href="tel:+19022951550" class="btn">Call Us</a>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Address: Plot No 196 Gandhi Nagar Dhule Road Nandurbar</p>
+    </div>
+  </div>
+</div>
+<!-- Link to FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<footer>
+  &copy; 2024 Student Voting System. All rights reserved.
+</footer>
+
+</body>
+</html>
